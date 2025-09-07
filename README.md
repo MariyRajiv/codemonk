@@ -10,7 +10,7 @@ A **Django web application** where users can register, log in, submit paragraphs
 * 👤 User registration & login
 * 📝 Submit and store paragraphs
 * 🔍 Search through your submissions
-* 🎨 Minimal UI with pure CSS (no JavaScript)
+* 🎨 Minimal UI with pure Html and CSS
 
 ---
 
