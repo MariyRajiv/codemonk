@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Paragraphs</title>
+    <link rel="stylesheet" href={% static "search/view_paragraphs_style.css" %}>
+</head>
+<body>
+    {% if paras %}
+        <h1>Your Submitted Paragraphs</h1>
+        <ul>
+            {% for para in paras %}
+                <li>{{ para }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You have not submitted any paragraphs yet.</p>
+    {% endif %}
+    <a href="{% url 'search:dashboard' %}">Back to DashBoard</a>
+</body>
+</html>

@@ -1,0 +1,59 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'search/dashboard_style.css' %}">
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/4b3f6a45a1.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Top Navbar -->
+    <div class="navbar">
+        <h1>Welcome back {{ user.username }}.</h1>
+        <div class="nav-actions">
+            <!-- Dark Mode Toggle -->
+            <button class="toggle-mode" onclick="toggleDarkMode()">
+                <i class="fas fa-adjust"></i>
+            </button>
+            <!-- Logout -->
+            <a href="{% url 'search:logout' %}" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+        </div>
+    </div>
+
+    <!-- Flash Messages -->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="message {{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <!-- Dashboard Tiles -->
+    <div class="dashboard-container">
+        <a href="{% url 'search:view_paragraphs' %}" class="card">
+            {% comment %} <i class="fas fa-upload"></i> {% endcomment %}
+            <span>View Paragraphs</span>
+        </a>
+        <a href="{% url 'search:submit' %}" class="card">
+            <i class="fas fa-upload"></i>
+            <span>Submit Paragraphs</span>
+        </a>
+        <a href="{% url 'search:search' %}" class="card">
+            <i class="fas fa-search"></i>
+            <span>Search Paragraphs</span>
+        </a>
+    </div>
+
+    <!-- Optional Spinner -->
+    <div class="spinner" style="display:none;"></div>
+
+    <!-- Script for Dark Mode -->
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
+</body>
+</html>

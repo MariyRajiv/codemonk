@@ -1,0 +1,25 @@
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Login Page</title>
+        <link rel="stylesheet" href="{% static 'search/login_style.css' %}">
+    </head>
+    <body>
+        <form method="POST" action="{% url 'search:login' %}">
+            {% csrf_token %}
+            <h2>Login</h2>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="message {{ message.tags }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+            {{ form.as_div}}
+            <div>
+                <a href="{% url 'search:reset_password' %}">Forgot Password?</a>
+            </div>
+            Don't have an account create one <a href="{% url 'search:register' %}">here</a><br><br>
+            <button type="submit">Login</button>
+        </form>
+    </body>
+</html>

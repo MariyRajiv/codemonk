@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Quick Search</title>
+    <link rel="stylesheet" href="{% static 'search/search_style.css' %}" />
+</head>
+<body>
+    <form method="post" action="{% url 'search:search' %}" class="search-card">
+        {% csrf_token %}
+        <h1>Quick Search</h1>
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="message {{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        {{ form.as_p }}
+        <button type="submit" class="btn">Search</button>
+        <a href="{% url 'search:dashboard' %}" class="back-btn">Back to DashBoard</a>
+    </form>
+</body>
+</html>

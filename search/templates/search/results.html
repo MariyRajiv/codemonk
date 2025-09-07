@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Search Results</title>
+    <link rel="stylesheet" href={% static "search/result_style.css" %}>
+</head>
+<body>
+    <div class="container">
+        <h1>Search Results</h1>
+
+        {% if search_term %}
+            <p class="search-info">Results for: <strong>{{ search_term }}</strong></p>
+        {% endif %}
+
+        {% if results %}
+            <ul class="results-list">
+                {% for para in results %}
+                    <li class="result-item">
+                        <p>{{ para }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <div class="no-results">No results found.</div>
+        {% endif %}
+
+        <a href="{% url 'search:search' %}" class="back-btn">← Back to Search</a>
+    </div>
+</body>
+</html>
