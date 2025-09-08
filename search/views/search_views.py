@@ -53,9 +53,9 @@ class SearchView(views.View):
         )
         results = {}
         for submission in para_submissions:
-            results[submission] = submission.word_freq_index.get(
-                search_term, 0
-            )
+            freq = submission.word_freq_index.get(search_term.lower(), 0)
+            if freq > 0:
+                results[submission] = freq
         if all(value == 0 for value in results.values()):
             messages.info(request, "No matching paragraphs found.")
             return render(
