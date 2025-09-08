@@ -1,3 +1,4 @@
+▶️ [Click here to watch the demo](https://www.loom.com/share/4601d93d86884e75910a32276fcfa405?sid=57c14a63-f568-4f58-8363-cf24c06cf0a3)
 
 # 🧾 Paragraph Dashboard
 
