@@ -42,8 +42,8 @@ paragraph-dashboard/
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/paragraph-dashboard.git
-cd paragraph-dashboard
+git clone https://github.com/MariyRajiv/codemonk.git
+cd paragraph
 ```
 
 ### 2️⃣ Create a Virtual Environment
